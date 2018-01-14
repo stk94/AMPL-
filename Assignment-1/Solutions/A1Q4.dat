@@ -1,0 +1,12 @@
+
+#Demand Data for Sandal Scheduling Problem
+
+data;
+
+set I := 1 2 3 4;
+
+param:       D :=
+	1   2800
+	2    500
+	3    100
+	4    850;

@@ -1,0 +1,11 @@
+#data file for tomato 
+
+data;
+
+set I:= 1 2 3;
+set J := 1 2;
+
+param:       d  tc     p :=
+    1   800000  18   -0.01
+    2    50000  20    0.08
+    3    80000  25    0.55;

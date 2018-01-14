@@ -1,0 +1,21 @@
+
+#Financial Investment for 6 months DATA
+
+data;
+
+set P := 1 3 6;
+set M := 1 2 3 4 5 6;
+
+param:    e :=
+	1   -50000
+	2    12000
+	3   -23000
+	4    20000
+	5   -41000
+	6    13000;
+
+param:     ir :=
+	1   1.005
+	3   1.021
+	6   1.035;
+	
