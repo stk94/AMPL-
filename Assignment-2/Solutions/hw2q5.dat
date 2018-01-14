@@ -1,0 +1,64 @@
+#MCNFP Problem - data file for problem instance
+#Charles Nicholson, ISE 5113, 2015
+
+#use with MCNFP.txt model
+#note: default arc costs and lower bounds are 0
+#      default arc upper bounds are infinity
+#      default node requirements are 0
+
+
+set NODES :=  	C C1 C2 C3 C4 C5 C6 C7 C8 T1 T2 T3 T4 T1P T2P T3P T4P
+				P1 P2 P3 P4 P5 P6 P1P P2P P3P P4P P5P P6P P
+				; 
+
+set ARCS := 	(C, *) C1 C2 C3 C4 C5 C6 C7 C8
+				(C1, *) T1 T3
+				(C2, *) T1 T2
+				(C3, *) T1 T3
+				(C4, *) T1 T2
+				(C5, *) T3 T4
+				(C6, *) T2 T4
+				(C7, *) T3 T4
+				(C8, *) T2 T4
+				(T1, T1P) (T2, T2P) (T3, T3P) (T4, T4P)
+				(T1P, *) P1 P2 P3 P4 P5 P6
+				(T2P, *) P1 P2 P3 P4 P5 P6
+				(T3P, *) P1 P2 P3 P4 P5 P6
+				(T4P, *) P1 P2 P3 P4 P5 P6
+				(P1, P1P) (P2, P2P) (P3, P3P) (P4, P4P) (P5, P5P) (P6, P6P)
+				(P1P, P) (P2P, P) (P3P, P) (P4P, P) (P5P, P) (P6P, P)
+				(P, C)
+				;
+
+param l :=
+	[C, *] C1 1 C2 1 C3 1 C4 1 C5 1 C6 1 C7 1 C8 1
+	;
+	
+param u :=
+	[C1, *] T1 1 T3 1
+	[C2, *] T1 1 T2 1
+	[C3, *] T1 1 T3 1
+	[C4, *] T1 1 T2 1
+	[C5, *] T3 1 T4 1
+	[C6, *] T2 1 T4 1
+	[C7, *] T3 1 T4 1
+	[C8, *] T2 1 T4 1
+	[T1, T1P] 3
+	[T2, T2P] 3
+	[T3, T3P] 3
+	[T4, T4P] 3
+	[T1P, *] P1 1 P2 1 P3 1 P4 1 P5 1 P6 1
+	[T2P, *] P1 1 P2 1 P3 1 P4 1 P5 1 P6 1
+	[T3P, *] P1 1 P2 1 P3 1 P4 1 P5 1 P6 1
+	[T4P, *] P1 1 P2 1 P3 1 P4 1 P5 1 P6 1
+	[P1, P1P] 2
+	[P2, P2P] 2
+	[P3, P3P] 2
+	[P4, P4P] 2
+	[P5, P5P] 2
+	[P6, P6P] 2
+	;
+	
+param c := 
+	[P, C] -1
+	;

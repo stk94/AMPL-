@@ -1,0 +1,23 @@
+#MCNFP Problem - data file for problem instance
+#Charles Nicholson, ISE 5113, 2015
+
+#use with MCNFP.txt model
+#note: default arc costs and lower bounds are 0
+#      default arc upper bounds are infinity
+#      default node requirements are 0
+
+
+set NODES :=  0	1 2 3 ; 
+
+set ARCS := 	(0, 1) (0,2) (0,3) (1,2) (1,3) (2,3)  ;
+
+param b :=
+	0  1 
+    3  -1;
+
+param c:=         
+	    [0, *] 1 8   2 18  3 31  
+        [1, *] 2 10  3 21 
+        [2, *] 3 12;
+
+  

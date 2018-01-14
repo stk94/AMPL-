@@ -1,0 +1,39 @@
+
+# Fuel plan problem
+
+data;
+
+set T := 1 2 3 4; # 1:Moline-Boston 2:Boston-Newyork 3:Newyork-Dallas 4:Dallas-Moline
+set S := 1 2 3 4 5; # 1:Moline 2:Boston 3:Newyork 4:Dallas 5:Moline
+
+param Y2 = 800;
+param Y3 = 450;
+param Y4 = 400;
+
+param PassWt = 200;
+param BOW = 22200;
+param Max_Rmp_Wt = 36400;
+param Max_Land_Wt = 31800;
+
+param W2 = 3350;
+param W3 = 2010;
+param W4 = 2345;
+
+param:    P :=
+	1   2
+	2   4
+	3   8
+	4   8;
+
+param:     F :=
+	1   4800
+	2   2000
+	3   5300
+	4   3100;
+	
+param: C :=
+    1  0.593
+    2  1.246
+    3  1.149
+    4  0.897
+    5  0.593;

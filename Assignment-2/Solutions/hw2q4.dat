@@ -1,0 +1,46 @@
+#MCNFP Problem - data file for problem instance
+#Charles Nicholson, ISE 5113, 2015
+
+#use with MCNFP.txt model
+#note: default arc costs and lower bounds are 0
+#      default arc upper bounds are infinity
+#      default node requirements are 0
+
+
+set NODES :=  	D0 D1 D2 D2P D3 D3P D4 D4P D5 D5P ; 
+
+set ARCS := 
+	(D0,*) D1 D2P D3P D4P D5P
+	(D1, *) D2P D3P D4P
+	(D2P, D2)
+	(D2, *) D3P D4P D5P D0
+	(D3P, D3)
+	(D3, *) D4P D5P D0
+	(D4P, D4)
+	(D4, *) D5P D0
+	(D5P, D5)
+	(D5, D0)
+	;
+
+
+param c :=
+	[D0, *] D1 8 D2P 8 D3P 8 D4P 8 D5P 8
+	[D1, *] D2P 3.75 D3P 1.25 D4P 0.75 
+	[D2, *] D3P 3.75 D4P 1.25 D5P 0.75 D0 0
+	[D3, *] D4P 3.75 D5P 1.25 D0 0
+	[D4, *] D5P 3.75 D0 0
+	[D5, D0] 0
+	;	
+	
+param l :=
+	[D0, D1] 400
+	[D2P, D2] 375
+	[D3P, D3] 515
+	[D4P, D4] 395
+	[D5P, D5] 620
+	;
+	
+param u :=
+	[D1, D4P] 20
+	[D2, D5P] 20
+	;
